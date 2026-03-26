@@ -316,26 +316,20 @@ export async function generateRandomQuestionFromPdfs(pdfs) {
     sourcePdf: selectedPdf.name,
     sectionTitle: sectionHeading?.title || null,
     sectionLevel: sectionHeading?.level || null,
-    sectionNumbering: sectionHeading?.title?.match(/^(\d+(?:\.\d+)*)/)
-      ? sectionHeading.title.match(/^(\d+(?:\.\d+)*)/)[1]
-      : null,
+    sectionNumbering: sectionHeading?.title?.match(/^(\d+(?:\.\d+)*)/)?.[1] ?? null,
     reference,
     contextSnippet,
   };
 
-  const generatorOrder = shuffle([...QUESTION_TYPES, "fillInBlank"]);
-
-  for (const type of generatorOrder) {
-    const generator = GENERATORS[type];
-    if (!generator) continue;
-    const generated = generator(base);
-    if (generated) {
-      return generated;
-    }
+  for (const type of shuffle([...QUESTION_TYPES])) {
+    const generated = GENERATORS[type]?.(base);
+    if (generated) return generated;
   }
 
-  // Final fallback to ensure we always return something.
-  return createFillInBlankQuestion(base);
+  // Final fallback — throws if no generator could produce a question.
+  const fallback = createFillInBlankQuestion(base);
+  if (!fallback) throw new Error("Could not generate a question from the selected sentence.");
+  return fallback;
 }
 
 export async function checkAnswerWithExplanation(question, selectedIndex) {

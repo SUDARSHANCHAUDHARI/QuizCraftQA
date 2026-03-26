@@ -7,7 +7,11 @@ const STORAGE_SETTINGS_KEY = "quizcraftqa-settings";
 export async function loadStoredPDFs() {
   try {
     const stored = await get(STORAGE_PDFS_KEY);
-    return Array.isArray(stored) ? stored : [];
+    if (!Array.isArray(stored)) return [];
+    return stored.map((pdf) => ({
+      ...pdf,
+      uploadedAt: pdf.uploadedAt ? new Date(pdf.uploadedAt) : new Date(),
+    }));
   } catch (error) {
     console.warn("Failed to load stored PDFs", error);
     return [];

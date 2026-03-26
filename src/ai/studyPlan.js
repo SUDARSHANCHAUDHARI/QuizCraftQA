@@ -47,7 +47,7 @@ export async function generateStudyPlan(payload) {
     }
     return fallbackStudyPlan(payload);
   } catch (error) {
-    console.warn("AI study plan error", error);
-    throw error instanceof Error ? error : new Error("Unknown study plan error");
+    console.warn("AI study plan error, using fallback:", error?.message);
+    return fallbackStudyPlan(payload);
   }
 }

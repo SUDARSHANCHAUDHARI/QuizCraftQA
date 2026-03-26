@@ -7,16 +7,25 @@ const formatFileSize = (bytes) => {
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
 };
 
-const formatDateTime = (date) =>
-  new Intl.DateTimeFormat(undefined, {
+const formatDateTime = (date) => {
+  const d = date instanceof Date ? date : new Date(date);
+  if (isNaN(d.getTime())) return "—";
+  return new Intl.DateTimeFormat(undefined, {
     dateStyle: "medium",
     timeStyle: "short",
-  }).format(date);
+  }).format(d);
+};
 
 export default function PDFUploader({ pdfs, onUpload, onDelete }) {
   const handleFileChange = async (event) => {
     const fileList = Array.from(event.target.files || []);
-    const pdfFiles = fileList.filter((file) => file.type === "application/pdf");
+    const MAX_SIZE = 50 * 1024 * 1024; // 50 MB
+    const pdfFiles = fileList.filter(
+      (file) => file.type === "application/pdf" && file.size <= MAX_SIZE
+    );
+    if (pdfFiles.length < fileList.length) {
+      console.warn("Some files were skipped — only PDFs under 50 MB are accepted.");
+    }
 
     const readFiles = await Promise.all(
       pdfFiles.map(

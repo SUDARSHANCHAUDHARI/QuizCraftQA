@@ -1,4 +1,9 @@
-import { getDocument } from "pdfjs-dist/build/pdf";
+import { getDocument, GlobalWorkerOptions } from "pdfjs-dist/build/pdf";
+import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.js?url";
+
+// This file runs as a Vite Web Worker. PDF.js needs its own sub-worker to
+// parse PDFs — point it at the real pdf.worker.js bundle so it can spawn one.
+GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
 
 function dataUrlToUint8Array(dataUrl) {
   if (!dataUrl) {
@@ -49,7 +54,7 @@ function deriveHeadingLevel(text) {
 
 async function extractAnalysisFromPdf(dataUrl) {
   const pdfBytes = dataUrlToUint8Array(dataUrl);
-  const loadingTask = getDocument({ data: pdfBytes, disableWorker: true });
+  const loadingTask = getDocument({ data: pdfBytes });
   const pdfDocument = await loadingTask.promise;
 
   const fullTextParts = [];
