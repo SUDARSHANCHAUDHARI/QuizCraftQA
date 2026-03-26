@@ -129,3 +129,7 @@ src/
 - idb-keyval for IndexedDB storage
 - Recharts for analytics charts
 - Vitest + jsdom for unit testing
+
+## Privacy Policy
+
+See [Privacy Policy](https://github.com/SUDARSHANCHAUDHARI/quizcraftqa-privacy-policy) for details on data handling.
