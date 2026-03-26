@@ -16,6 +16,11 @@ import Dashboard from "./components/Dashboard.js";
 
 const h = React.createElement;
 
+const randomId = () =>
+  typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+    ? crypto.randomUUID()
+    : Math.random().toString(36).slice(2) + Date.now().toString(36);
+
 const TABS = [
   { id: "quiz", label: "Quiz" },
   { id: "pdfs", label: "My PDFs" },
@@ -294,7 +299,7 @@ export default function App() {
           return prev;
         }
         const entry = {
-          id: crypto.randomUUID(),
+          id: randomId(),
           timestamp: new Date(),
           ...event,
         };
@@ -408,7 +413,7 @@ export default function App() {
         setCurrentConfidence(null);
 
         const historyEntry = {
-          id: crypto.randomUUID(),
+          id: randomId(),
           timestamp: new Date(),
           prompt: question.prompt,
           questionType: question.type,
@@ -542,7 +547,7 @@ export default function App() {
     (questionCount) => {
       const count = Math.max(1, Number(questionCount) || 5);
       setSession({
-        id: crypto.randomUUID(),
+        id: randomId(),
         questionCount: count,
         answered: 0,
         correct: 0,

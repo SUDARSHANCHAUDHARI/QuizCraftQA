@@ -306,6 +306,7 @@ export async function generateRandomQuestionFromPdfs(pdfs) {
   const distractors = buildDistractors(correctWord, vocabulary.filter((word) => word !== correctWord));
   const options = shuffle([correctWord, ...distractors]);
   const answerIndex = options.findIndex((option) => option === correctWord);
+  if (answerIndex === -1) return null; // correctWord missing from options — skip sentence
 
   const base = {
     sentence,

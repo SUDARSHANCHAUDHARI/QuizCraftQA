@@ -27,25 +27,37 @@ export default function PDFUploader({ pdfs, onUpload, onDelete }) {
       console.warn("Some files were skipped — only PDFs under 50 MB are accepted.");
     }
 
-    const readFiles = await Promise.all(
-      pdfFiles.map(
-        (file) =>
-          new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => {
-              resolve({
-                id: crypto.randomUUID(),
-                name: file.name,
-                size: file.size,
-                uploadedAt: new Date(),
-                dataUrl: reader.result,
-              });
-            };
-            reader.onerror = () => reject(reader.error);
-            reader.readAsDataURL(file);
-          })
-      )
-    );
+    const randomId = () =>
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : Math.random().toString(36).slice(2);
+
+    let readFiles;
+    try {
+      readFiles = await Promise.all(
+        pdfFiles.map(
+          (file) =>
+            new Promise((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onload = () => {
+                resolve({
+                  id: randomId(),
+                  name: file.name,
+                  size: file.size,
+                  uploadedAt: new Date(),
+                  dataUrl: reader.result,
+                });
+              };
+              reader.onerror = () => reject(new Error(`Failed to read "${file.name}"`));
+              reader.readAsDataURL(file);
+            })
+        )
+      );
+    } catch (err) {
+      console.error("File read error:", err?.message || err);
+      event.target.value = "";
+      return;
+    }
 
     if (readFiles.length > 0) {
       onUpload(readFiles);

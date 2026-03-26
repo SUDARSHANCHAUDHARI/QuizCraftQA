@@ -355,7 +355,7 @@ export default function Dashboard({
                                 "inline-flex min-w-[48px] items-center justify-center rounded-full px-2 py-1 font-semibold " +
                                 (CONFIDENCE_COLORS[level] || "bg-slate-100 text-slate-500"),
                             },
-                            `${topic.confidence[level]}`
+                            `${topic.confidence?.[level] ?? 0}`
                           )
                         )
                       )
@@ -380,7 +380,7 @@ export default function Dashboard({
                                 "inline-flex min-w-[48px] items-center justify-center rounded-full px-2 py-1 font-semibold " +
                                 (DIFFICULTY_STYLES[level] || "bg-slate-100 text-slate-500"),
                             },
-                            `${topic.difficultyBreakdown[level]}`
+                            `${topic.difficultyBreakdown?.[level] ?? 0}`
                           )
                         )
                       )
@@ -691,7 +691,9 @@ export default function Dashboard({
                   h(
                     "span",
                     { className: "text-xs text-slate-400" },
-                    entry.timestamp.toLocaleString()
+                    entry.timestamp
+                      ? (entry.timestamp instanceof Date ? entry.timestamp : new Date(entry.timestamp)).toLocaleString()
+                      : "—"
                   )
                 ),
                 h(
