@@ -3,21 +3,36 @@ node_modules/
 
 # Build output
 dist/
+dist-ssr/
 
 # Environment variables
 .env
 .env.local
 .env.*.local
+.env.production
 
 # macOS
 .DS_Store
 **/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # Editor
 .vscode/
+!.vscode/extensions.json
 .idea/
 *.swp
 *.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # Test coverage
 coverage/
@@ -25,3 +40,21 @@ coverage/
 # Logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vite
+*.local
+vite.config.js.timestamp-*
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# Temp files
+*.tmp
+*.temp
