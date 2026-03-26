@@ -29,7 +29,7 @@ The `ISTQB/` folder contains official ISTQB syllabus PDFs you can use immediatel
 
 | File | Syllabus |
 |------|----------|
-| `ISTQB_CTFL_Syllabus_v4.0.1 (1).pdf` | Foundation Level v4.0.1 *(start here)* |
+| `ISTQB_CTFL_Syllabus_v4.0.1.pdf` | Foundation Level v4.0.1 *(start here)* |
 | `ISTQB-CTAL-TA-Syllabus-v4.0-EN.pdf` | Advanced Level — Test Analyst v4.0 |
 | `ISTQB-CTAL-TTA_Syllabus_v4.0.pdf` | Advanced Level — Technical Test Analyst v4.0 |
 | `ISTQB_CTAL-TM_Syllabus_v3.0_ALL_.pdf` | Advanced Level — Test Manager v3.0 |
