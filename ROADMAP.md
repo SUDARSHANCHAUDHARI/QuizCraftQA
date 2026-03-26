@@ -33,9 +33,9 @@ This roadmap captures the enhancement ideas we discussed. Each item is grouped b
 - [x] C3. Allow manual notes per question to capture learner insights.
 
 ## 6. Advanced Analytics & Experience
-- [ ] D1. Visualize progress trends (line charts for accuracy, streak progression, confidence over time).
-- [ ] D2. Topic filtering and difficulty drill-down in the dashboard.
-- [ ] D3. Session enhancements: retry flagged questions, edit notes from summary, custom session templates.
+- [x] D1. Visualize progress trends (line charts for accuracy, streak progression, confidence over time).
+- [x] D2. Topic filtering and difficulty drill-down in the dashboard.
+- [x] D3. Session enhancements: retry flagged questions, edit notes from summary, custom session templates.
 
 ---
 
