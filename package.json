@@ -16,7 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-react": "^3.1.0",
-    "@vitest/coverage-v8": "^4.1.1",
+    "@vitest/coverage-v8": "^4.1.2",
     "autoprefixer": "^10.4.21",
     "jsdom": "^29.0.1",
     "postcss": "^8.5.6",
