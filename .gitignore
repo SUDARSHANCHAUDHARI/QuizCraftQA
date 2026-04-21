@@ -58,3 +58,4 @@ vite.config.js.timestamp-*
 # Temp files
 *.tmp
 *.temp
+PLAN.md
