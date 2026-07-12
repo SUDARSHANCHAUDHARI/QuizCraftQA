@@ -22,8 +22,8 @@ ISTQB exam preparation tool that turns your PDF study materials into adaptive qu
 ## Quick Start
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Open `http://localhost:5173` in your browser.
@@ -52,8 +52,8 @@ The `ISTQB/` folder contains official ISTQB syllabus PDFs you can use immediatel
 ## Build for Production
 
 ```bash
-npm run build
-npm run preview
+pnpm run build
+pnpm run preview
 ```
 
 ## Environment Variables
@@ -75,13 +75,13 @@ Both AI endpoints are optional. When omitted, the app uses deterministic fallbac
 
 ```bash
 # Run all unit tests
-npm test
+pnpm test
 
 # Watch mode (re-runs on file changes)
-npm run test:watch
+pnpm run test:watch
 
 # With coverage report
-npm run test:coverage
+pnpm run test:coverage
 ```
 
 **85 tests** across 7 test files covering:

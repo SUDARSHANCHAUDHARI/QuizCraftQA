@@ -5,7 +5,7 @@
 - Path: `QA Projects/QuizCraftQA`
 - Type: Web/TypeScript project
 - Framework: inspect `package.json` before assuming Next.js or React.
-- Package manager: `npm` unless repo scripts prove otherwise.
+- Package manager: `pnpm`.
 
 ## Workflows
 
@@ -22,4 +22,3 @@
 - Stage files by explicit path only.
 - Prefer focused changes and match existing project patterns.
 - Read `CodexConfig/rules/web.md` before substantial web/TypeScript work.
-

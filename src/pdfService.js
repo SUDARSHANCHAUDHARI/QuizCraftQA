@@ -1,5 +1,5 @@
-import { getDocument, GlobalWorkerOptions } from "pdfjs-dist/build/pdf";
-import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.js?url";
+import { getDocument, GlobalWorkerOptions } from "pdfjs-dist/build/pdf.mjs";
+import pdfWorkerUrl from "pdfjs-dist/build/pdf.worker.mjs?url";
 
 // Point PDF.js at its own bundled worker so parsing runs off the main thread.
 GlobalWorkerOptions.workerSrc = pdfWorkerUrl;

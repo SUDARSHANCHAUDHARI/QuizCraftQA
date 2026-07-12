@@ -7,8 +7,8 @@ Thank you for your interest in contributing!
 ```bash
 git clone https://github.com/SUDARSHANCHAUDHARI/QuizCraftQA.git
 cd QuizCraftQA
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 ## Development Workflow
@@ -21,9 +21,9 @@ npm run dev
 ## Running Tests
 
 ```bash
-npm test              # run all tests once
-npm run test:watch    # re-run on file changes
-npm run test:coverage # generate coverage report
+pnpm test              # run all tests once
+pnpm run test:watch    # re-run on file changes
+pnpm run test:coverage # generate coverage report
 ```
 
 ## Project Conventions
