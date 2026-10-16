@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "idb-keyval": "^6.3.0",
-    "pdfjs-dist": "^5.7.284",
+    "pdfjs-dist": "^6.0.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "recharts": "^3.9.2",
