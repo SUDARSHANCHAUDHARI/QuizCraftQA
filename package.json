@@ -20,15 +20,15 @@
     "@vitest/coverage-v8": "^0.34.6",
     "autoprefixer": "^10.5.2",
     "jsdom": "^29.1.1",
-    "postcss": "^8.5.18",
+    "postcss": "^8.5.23",
     "tailwindcss": "^3.4.19",
-    "vite": "^4.5.14",
+    "vite": "^6.4.3",
     "vite-plugin-pwa": "^0.16.7",
-    "vitest": "^0.34.6"
+    "vitest": "^3.2.6"
   },
   "dependencies": {
     "idb-keyval": "^6.3.0",
-    "pdfjs-dist": "^5.7.284",
+    "pdfjs-dist": "^6.2.108",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "recharts": "^3.9.2",
